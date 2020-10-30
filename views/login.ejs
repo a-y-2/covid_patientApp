@@ -1,16 +1,23 @@
-<%- include ("./partials/header") %>
+<html>
+  <head>
+    <title>Login</title>
+    <%- include ("./partials/header") %>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+  </head>
 
+  <body>
+    <h1>login</h1>
 
-<h1>login</h1>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="username" />
+      <input type="password" name="password" placeholder="password" />
+      <button>login</button>
+    </form>
 
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>login</button>
-</form>
+    <li><a href="/register">sign up</a></li>
+    <li><a href="/login">login</a></li>
+    <li><a href="/logout">logout</a></li>
 
-<li><a href="/register">sign up</a></li>
-<li><a href="/login">login</a></li>
-<li><a href="/logout">logout</a></li>
-
-<%- include ("./partials/footer") %>
+    <%- include ("./partials/footer") %>
+  </body>
+</html>

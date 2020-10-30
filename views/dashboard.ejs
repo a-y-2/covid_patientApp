@@ -1,7 +1,17 @@
-<%- include ("./partials/header") %>
-<h1>dashboard</h1>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <%- include ("./partials/header") %>
+    <link rel="stylesheet" href="/stylesheets/dashboard.css" />
+  </head>
 
-<li><a href="/register">sign up</a></li>
-<li><a href="/login">login</a></li>
-<li><a href="/logout">logout</a></li>
-<%- include ("./partials/footer") %>
+  <body>
+    <h1>dashboard</h1>
+
+    <li><a href="/register">sign up</a></li>
+    <li><a href="/login">login</a></li>
+    <li><a href="/logout">logout</a></li>
+
+    <%- include ("./partials/footer") %>
+  </body>
+</html>
