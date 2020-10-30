@@ -3,7 +3,7 @@
   <head>
     <title>💊 COVID-19 Patients' Support</title>
     <%- include ("./partials/header") %>
-    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <link rel="stylesheet" href="/public/stylesheets/home.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
       type="text/javascript"
@@ -11,11 +11,14 @@
     ></script>
   </head>
   <body>
-    <h1>🏠 Home</h1>
-
-    <li><a href="/register">sign up</a></li>
-    <li><a href="/login">login</a></li>
-    <li><a href="/logout">logout</a></li>
+    <center>
+      <h1>COVID-19 Patients' Support</h1>
+      
+      <a href="/register" class="waves-effect waves-light btn">sign up</a>
+      <a href="/login" class="waves-effect waves-light btn">login</a>
+      <a href="/logout" class="waves-effect waves-light btn">logout</a>
+    </center>
+    
 
     <%- include ("partials/footer") %>
   </body>

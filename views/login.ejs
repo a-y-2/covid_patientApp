@@ -2,21 +2,56 @@
   <head>
     <title>Login</title>
     <%- include ("./partials/header") %>
-    <link rel="stylesheet" href="/stylesheets/login.css" />
-  </head>
+    <link rel="stylesheet" href="/public/stylesheets/login.css">
 
   <body>
-    <h1>login</h1>
+    <h1>
+      <center>Login</center>
+    </h1>
 
-    <form action="/login" method="POST">
-      <input type="text" name="username" placeholder="username" />
-      <input type="password" name="password" placeholder="password" />
-      <button>login</button>
-    </form>
+    <!-- LOGIN FORM -->
+    <div class="container">
+      <div class="row">
+        <form action="/login" method="POST" class="col s6 offset-s3">
 
-    <li><a href="/register">sign up</a></li>
-    <li><a href="/login">login</a></li>
-    <li><a href="/logout">logout</a></li>
+          <!-- Username Field -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="validate"
+              />
+              <label for="username">Username</label>
+            </div>
+          </div>
+
+          <!-- Password Field -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="validate"
+              />
+              <label for="password">Password</label>
+            </div>
+          </div>
+
+            <!-- Submit Button  -->
+          <button class="waves-effect waves-light btn">LOGIN</button>
+        
+        </form>
+      </div>
+    </div>
+
+    <center>
+      <button class="waves-effect waves-light btn"><a href="/register">SIGN UP</a></button>
+    </center>
+    <!-- <li><a href="/login">login</a></li> -->
+    <!-- <li><a href="/logout">logout</a></li> -->
 
     <%- include ("./partials/footer") %>
   </body>

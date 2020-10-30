@@ -2,21 +2,44 @@
   <head>
     <title>Register</title>
     <%- include ("./partials/header") %>
-    <link rel="stylesheet" href="/stylesheets/register.css" />
+    <link rel="stylesheet" href="/public/stylesheets/register.css" />
   </head>
 
   <body>
-    <h1>sign up form</h1>
+    <h1><center>Sign Up</center></h1>
+    <!-- REGISTER FORM -->
+    <div class="container">
+      <div class="row">
+        <form action="/register" method="POST" class="col s6 offset-s3">
+    
+          <!-- Username Field -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" name="username" id="username" class="validate" />
+              <label for="username">Username</label>
+            </div>
+          </div>
+    
+          <!-- Password Field -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" name="password" id="password" class="validate" />
+              <label for="password">Password</label>
+            </div>
+          </div>
+    
+          <!-- Submit Button  -->
+          <button class="waves-effect waves-light btn">SIGN UP</button>
+    
+        </form>
+      </div>
+    </div>
+    
+    <center><a href="/login" class="waves-effect waves-light btn">Login</a></center>
+    
 
-    <form action="/register" method="POST">
-      <input type="text" name="username" placeholder="username" />
-      <input type="password" name="password" placeholder="password" />
-      <button>submit</button>
-    </form>
-
-    <li><a href="/register">sign up</a></li>
-    <li><a href="/login">login</a></li>
-    <li><a href="/logout">logout</a></li>
+    <!-- <li><a href="/register">sign up</a></li> -->
+    <!-- <li><a href="/logout">logout</a></li> -->
 
     <%- include ("./partials/footer") %>
   </body>
