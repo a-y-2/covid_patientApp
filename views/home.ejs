@@ -9,16 +9,55 @@
       type="text/javascript"
       async
     ></script>
+    <!-- INTERNAL CSS -->
+    <style></style>
   </head>
   <body>
-    <center>
-      <h1>COVID-19 Patients' Support</h1>
-      
-      <a href="/register" class="waves-effect waves-light btn">sign up</a>
-      <a href="/login" class="waves-effect waves-light btn">login</a>
-      <a href="/logout" class="waves-effect waves-light btn">logout</a>
-    </center>
-    
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m12 l2" style="margin: 1%"></div>
+      </div>
+
+      <div class="row">
+        <div class="col s6 m6 l12">
+          <h1><b>COVID-19</b> Patients' Support</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <p class="flow-text">
+            This app is aimed at providing support and assistance to COVID-19
+            patients.
+            <br />
+            <br />
+            This app will automate and improve the communication between the
+            government officials, health workers and the patients and will be a
+            major breakthrough in bidding adieu to monitoring process via
+            everyday phone calls.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6">
+          <a
+            href="/register"
+            class="waves-effect waves-light btn-large col s12 blue lighten-3 grey-text text-darken-4"
+            >sign up</a
+          >
+        </div>
+        <div class="col s6">
+          <a
+            href="/login"
+            class="waves-effect waves-light btn-large col s12 green lighten-3 grey-text text-darken-4"
+            >login</a
+          >
+        </div>
+
+        <!-- <a href="/logout" class="waves-effect waves-light btn-large">logout</a> -->
+      </div>
+    </div>
 
     <%- include ("partials/footer") %>
   </body>
