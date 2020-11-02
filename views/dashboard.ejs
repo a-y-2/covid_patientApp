@@ -6,6 +6,9 @@
   </head>
 
   <body>
+    
+    <h5>logged in as  <%=currentUser.username%></h5>
+    
     <center>
       <h1>Dashboard</h1>
       
@@ -19,8 +22,11 @@
       <br>
       <i>Meet our doctors</i>
     </center>
-    
-
+    <input type="hidden" name="id" value="<%=id %>" /> 
+     
+    <a href="/dashboard/new" class="waves-effect waves-light btn">FILL your everyday details</a>
+    <a href="/dashboard/show?id=<%=id%>" class="waves-effect waves-light btn">SEE your everyday detail</a>
+    <a href="/dashboard/advice" class="waves-effect waves-light btn">advice</a>
     <%- include ("./partials/footer") %>
   </body>
 </html>

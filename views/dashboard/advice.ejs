@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>details</title>
+    </head>
+    <body>
+        <h3>ADVICE TRACKER</h3>
+    <ul>
+      <% for(let x of advice){%>
+        <%if(currentUser.username==x.username){%>
+            <li>date:<%=x.date%></li>
+            <li><%=x.advice%></li>
+            
+            <br>
+        <%}%>
+       
+      <%}%>
+    </ul>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>details</title>
+    </head>
+    <body>
+        <h3>details filled up by the patient</h3>
+    <ul>
+      <% for(let detail of details){%>
+        
+        <li>date:<%=detail.date%></li>
+        <li>oxygen-level:<%=detail.oxygen%></li>
+        <li>body-temperature:<%=detail.temp%></li>
+        <li>blood-pressure:<%=detail.bp%></li>
+        <li>other details:<%=detail.other%></li>
+        <br>
+      <%}%>
+    </ul>
+    </body>
+</html>
