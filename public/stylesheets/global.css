@@ -1,11 +1,10 @@
 :root {
-  --base:  rgb(20, 20, 20);
-  --primary:  aquamarine;
+  --base: rgb(20, 20, 20);
+  --primary: aquamarine;
   --secondary: palegoldenrod;
-  --accent1:  rgba(127, 255, 212, 0.733);
-  --accent2:  floralwhite;
+  --accent1: rgba(127, 255, 212, 0.733);
+  --accent2: rgba(255, 250, 240, 0.801);
 }
-
 
 body,
 html {
@@ -32,6 +31,6 @@ a:visited {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .example {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

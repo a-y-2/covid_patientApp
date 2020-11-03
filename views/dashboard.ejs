@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <title>✨ Dashboard</title>
 
@@ -9,33 +10,36 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/stylesheets/global.css" />
 </head>
+
 <body>
   <input type="hidden" name="id" value="<%=id %>" />
   <%- include ("./partials/header") %>
 
   <!-- NAV BAR-->
-  <div style="background-color: var(--accent1)">
-    <div class="container" style="text-align: center;">
-      <div class="row">
-        <div class="col s3" style="padding: 10px;">
-          <a href="/dashboard/" class="waves-effect waves-teal btn-flat">NOTICE BOARD</a>
-        </div>
-        <div class="col s3" style="padding: 10px;">
-          <a href="/dashboard/new" class="waves-effect waves-teal btn-flat">DAILY REPORT</a>
-        </div>
-        <div class="col s3" style="padding: 10px;">
-          <a href="/dashboard/show?id=<%=id%>" class="waves-effect waves-teal btn-flat">PAST REPORTS</a>
-        </div>
-        <div class="col s3" style="padding: 10px;">
-          <a href="/dashboard/advice" class="waves-effect waves-teal btn-flat">DOCTORS' ADVICE</a>
+  <b>
+    <div style="background-color: var(--accent1)">
+      <div class="container" style="text-align: center;">
+        <div class="row">
+          <div class="col s3" style="padding: 10px;">
+            <a href="/dashboard/" class="waves-effect waves-teal btn-flat">NOTICE BOARD</a>
+          </div>
+          <div class="col s3" style="padding: 10px;">
+            <a href="/dashboard/new" class="waves-effect waves-teal btn-flat">DAILY REPORT</a>
+          </div>
+          <div class="col s3" style="padding: 10px;">
+            <a href="/dashboard/show?id=<%=id%>" class="waves-effect waves-teal btn-flat">PAST REPORTS</a>
+          </div>
+          <div class="col s3" style="padding: 10px;">
+            <a href="/dashboard/advice" class="waves-effect waves-teal btn-flat">DOCTORS' ADVICE</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </b>
 
   <!-- NOTICE BOARD -->
   <div class="container example" style="
-        height: 500px;
+        max-height: 480px;
         overflow: scroll;
         background-color: var(--secondary);
         padding: 0 30px;
@@ -78,7 +82,13 @@
       <div class="col s12">
         <h6>✨ General Instructions</h6>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde assumenda autem repudiandae maiores ut dolores tenetur velit a dignissimos delectus atque doloremque minima nam cum accusamus, officiis labore recusandae neque modi dolore expedita odit! Necessitatibus ipsum eius maxime, distinctio laudantium rem ex facilis incidunt obcaecati odio totam cum aliquid dolore accusantium nemo repellat praesentium quam vitae consequuntur tempora culpa eligendi! Sapiente, aliquam suscipit. Eveniet exercitationem reiciendis eum quae, dolorem saepe ut eius neque! Voluptas fuga alias a officia, mollitia distinctio non omnis quam possimus ea, accusamus impedit unde molestiae exercitationem provident sed magni expedita ipsam sunt eum repellat. Odit, nostrum!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde assumenda autem repudiandae maiores ut dolores
+          tenetur velit a dignissimos delectus atque doloremque minima nam cum accusamus, officiis labore recusandae
+          neque modi dolore expedita odit! Necessitatibus ipsum eius maxime, distinctio laudantium rem ex facilis
+          incidunt obcaecati odio totam cum aliquid dolore accusantium nemo repellat praesentium quam vitae consequuntur
+          tempora culpa eligendi! Sapiente, aliquam suscipit. Eveniet exercitationem reiciendis eum quae, dolorem saepe
+          ut eius neque! Voluptas fuga alias a officia, mollitia distinctio non omnis quam possimus ea, accusamus
+          impedit unde molestiae exercitationem provident sed magni expedita ipsam sunt eum repellat. Odit, nostrum!
         </p>
       </div>
     </div>
@@ -86,4 +96,5 @@
 
   <%- include ("./partials/footer") %>
 </body>
+
 </html>

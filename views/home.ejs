@@ -1,71 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>💊 COVID-19 Patients' Support</title>
-    <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/stylesheets/global.css">
-    <link rel="stylesheet" href="/stylesheets/home.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
-      type="text/javascript"
-      async
-    ></script>
-    <!-- INTERNAL CSS -->
-    <style></style>
-  </head>
-  <body>
-    <%=messages%>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m12 l2" style="margin: 1%"></div>
-      </div>
 
-      <div class="row">
-        <div class="col s6 m6 l12">
-          <h1><b>COVID-19</b> Patients' Support</h1>
-        </div>
-      </div>
+<head>
+  <title>🩺 COVID-19 Patients' Support</title>
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-      <div class="row">
-        <div class="col s12">
-          <p class="flow-text">
-            This app is aimed at providing support and assistance to COVID-19
-            patients.
-            <br />
-            <br />
-            This app will automate and improve the communication between the
-            government officials, health workers and the patients and will be a
-            major breakthrough in bidding adieu to monitoring process via
-            everyday phone calls.
-          </p>
-        </div>
-      </div>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/stylesheets/global.css">
 
-      <div class="row">
-        <div class="col s6">
-          <a
-            href="/register"
-            class="waves-effect waves-light btn-large col s12 blue lighten-3 grey-text text-darken-4"
-            >sign up</a
-          >
-        </div>
-        <div class="col s6">
-          <a
-            href="/login"
-            class="waves-effect waves-light btn-large col s12 green lighten-3 grey-text text-darken-4"
-            >login</a
-          >
-        </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"
+    async></script>
+</head>
 
-        <!-- <a href="/logout" class="waves-effect waves-light btn-large">logout</a> -->
+<body>
+  <script>
+    if ("<%=messages %>" != "")
+      alert("<%=messages %>");
+  </script>
+
+  <div class="container" style="color: rgba(255, 250, 240, 0.9);">
+    <div class="row">
+      <div class="col s6 m6 l12">
+        <h1 style="margin-top: 120px;"><b>COVID-19</b> Patients' Support 🩺</h1>
       </div>
     </div>
 
-    <%- include ("partials/footer") %>
-  </body>
+    <div class="row">
+      <div class="col s12">
+        <p class="flow-text">
+          🚀 This app is aimed at providing support and assistance to COVID-19
+          patients.
+          <br />
+          <br />
+          This app will automate and improve the communication between the
+          government officials, health workers and the patients and will be a
+          major breakthrough in bidding adieu to monitoring process via
+          everyday phone calls.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s6">
+        <a href="/register"
+          class="waves-effect waves-light btn-large col s12 blue lighten-3 grey-text text-darken-4"><b>sign up</b></a>
+      </div>
+      <div class="col s6">
+        <a href="/login"
+          class="waves-effect waves-light btn-large col s12 green lighten-3 grey-text text-darken-4"><b>login</b></a>
+      </div>
+
+      <!-- <a href="/logout" class="waves-effect waves-light btn-large">logout</a> -->
+    </div>
+  </div>
+
+  <%- include ("partials/footer") %>
+</body>
+
 </html>
