@@ -1,19 +1,51 @@
 <html>
-    <head>
-        <title>details</title>
-    </head>
-    <body>
-        <h3>details filled up by the patient</h3>
-    <ul>
-      <% for(let detail of details){%>
-        
-        <li>date:<%=detail.date%></li>
-        <li>oxygen-level:<%=detail.oxygen%></li>
-        <li>body-temperature:<%=detail.temp%></li>
-        <li>blood-pressure:<%=detail.bp%></li>
-        <li>other details:<%=detail.other%></li>
-        <br>
-      <%}%>
-    </ul>
-    </body>
+<head>
+  <title>📝 Past Reports</title>
+  
+  <!-- Materialize & Google Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/stylesheets/global.css">
+</head>
+<body>
+  <%- include ("../partials/header") %>
+
+  <div class="container example" style="
+            height: 550px;
+            overflow: scroll;
+            background-color: palegoldenrod;
+            padding: 0 30px;
+            margin: 20px auto;
+          ">
+    <h3>Past Reports</h3>
+    <div class="row">
+      <div class="col s12">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Oxygen-level</th>
+              <th>Body-temperature</th>
+              <th>Blood-pressure</th>
+              <th>Other details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let detail of details){%>
+            <tr>
+              <td><b><%=detail.date%></b></td>
+              <td><%=detail.oxygen%></td>
+              <td><%=detail.temp%> &#8451;</td>
+              <td><%=detail.bp%></td>
+              <td><%=detail.other%></td>
+            </tr>
+            <%}%>
+          </tbody>
+          </table>        
+      </div>
+    </div>
+  </div>
+</body>
 </html>

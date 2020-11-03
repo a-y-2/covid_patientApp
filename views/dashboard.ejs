@@ -1,32 +1,89 @@
 <html>
-  <head>
-    <title>Dashboard</title>
-    <%- include ("./partials/header") %>
-    <link rel="stylesheet" href="/stylesheets/dashboard.css" />
-  </head>
+<head>
+  <title>✨ Dashboard</title>
 
-  <body>
-    
-    <h5>logged in as  <%=currentUser.username%></h5>
-    
-    <center>
-      <h1>Dashboard</h1>
-      
-      
-      <!-- <li><a href="/register">sign up</a></li> -->
-      <!-- <li><a href="/login">login</a></li> -->
-      <a href="/logout" class="waves-effect waves-light btn">LOGOUT</a>
-      <br>
-      <br>
-      👨🏻‍⚕️👩🏻‍⚕️
-      <br>
-      <i>Meet our doctors</i>
-    </center>
-    <input type="hidden" name="id" value="<%=id %>" /> 
-     
-    <a href="/dashboard/new" class="waves-effect waves-light btn">FILL your everyday details</a>
-    <a href="/dashboard/show?id=<%=id%>" class="waves-effect waves-light btn">SEE your everyday detail</a>
-    <a href="/dashboard/advice" class="waves-effect waves-light btn">advice</a>
-    <%- include ("./partials/footer") %>
-  </body>
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/stylesheets/global.css" />
+</head>
+<body>
+  <input type="hidden" name="id" value="<%=id %>" />
+  <%- include ("./partials/header") %>
+
+  <!-- NAV BAR-->
+  <div style="background-color: var(--accent1)">
+    <div class="container" style="text-align: center;">
+      <div class="row">
+        <div class="col s3" style="padding: 10px;">
+          <a href="/dashboard/" class="waves-effect waves-teal btn-flat">NOTICE BOARD</a>
+        </div>
+        <div class="col s3" style="padding: 10px;">
+          <a href="/dashboard/new" class="waves-effect waves-teal btn-flat">DAILY REPORT</a>
+        </div>
+        <div class="col s3" style="padding: 10px;">
+          <a href="/dashboard/show?id=<%=id%>" class="waves-effect waves-teal btn-flat">PAST REPORTS</a>
+        </div>
+        <div class="col s3" style="padding: 10px;">
+          <a href="/dashboard/advice" class="waves-effect waves-teal btn-flat">DOCTORS' ADVICE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTICE BOARD -->
+  <div class="container example" style="
+        height: 500px;
+        overflow: scroll;
+        background-color: var(--secondary);
+        padding: 0 30px;
+      ">
+    <h3>Notice Board</h3>
+    <div class="row">
+      <div class="col s12">
+        <h6>✨ General Instructions</h6>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          aspernatur animi error nisi voluptas quisquam aperiam earum,
+          sapiente ipsam id esse architecto rem odit unde minus iste iure ea
+          asperiores ipsa alias ducimus! Non nisi explicabo fuga ab reiciendis
+          aliquid doloremque quas. Ex laborum nesciunt ad sint? A, mollitia.
+          Architecto.
+        </p>
+      </div>
+      <div class="col s12">
+        <h6>✨ General Instructions</h6>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          aspernatur animi error nisi voluptas quisquam aperiam earum,
+          sapiente ipsam id esse architecto rem odit unde minus iste iure ea
+          asperiores ipsa alias ducimus! Non nisi explicabo fuga ab reiciendis
+          aliquid doloremque quas. Ex laborum nesciunt ad sint? A, mollitia.
+          Architecto.
+        </p>
+      </div>
+      <div class="col s12">
+        <h6>✨ General Instructions</h6>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          aspernatur animi error nisi voluptas quisquam aperiam earum,
+          sapiente ipsam id esse architecto rem odit unde minus iste iure ea
+          asperiores ipsa alias ducimus! Non nisi explicabo fuga ab reiciendis
+          aliquid doloremque quas. Ex laborum nesciunt ad sint? A, mollitia.
+          Architecto.
+        </p>
+      </div>
+      <div class="col s12">
+        <h6>✨ General Instructions</h6>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde assumenda autem repudiandae maiores ut dolores tenetur velit a dignissimos delectus atque doloremque minima nam cum accusamus, officiis labore recusandae neque modi dolore expedita odit! Necessitatibus ipsum eius maxime, distinctio laudantium rem ex facilis incidunt obcaecati odio totam cum aliquid dolore accusantium nemo repellat praesentium quam vitae consequuntur tempora culpa eligendi! Sapiente, aliquam suscipit. Eveniet exercitationem reiciendis eum quae, dolorem saepe ut eius neque! Voluptas fuga alias a officia, mollitia distinctio non omnis quam possimus ea, accusamus impedit unde molestiae exercitationem provident sed magni expedita ipsam sunt eum repellat. Odit, nostrum!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <%- include ("./partials/footer") %>
+</body>
 </html>

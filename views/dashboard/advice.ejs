@@ -1,19 +1,65 @@
 <html>
-    <head>
-        <title>details</title>
-    </head>
-    <body>
-        <h3>ADVICE TRACKER</h3>
-    <ul>
-      <% for(let x of advice){%>
-        <%if(currentUser.username==x.username){%>
-            <li>date:<%=x.date%></li>
-            <li><%=x.advice%></li>
-            
-            <br>
-        <%}%>
-       
-      <%}%>
-    </ul>
-    </body>
+<head>
+  <title>👨🏻‍⚕️👩🏻‍⚕️ Doctors' Advice</title>
+
+  <!-- Materialize & Google Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/stylesheets/global.css">
+</head>
+
+<body>
+  <%- include ("../partials/header") %>
+
+  <div class="container example" style="
+          height: 550px;
+          overflow: scroll;
+          background-color: palegoldenrod;
+          padding: 0 30px;
+          margin: 20px auto;
+        ">
+    <h3>Doctors' Advice</h3>
+    <div class="row">
+      <div class="col s6">
+        <div class="row">
+          <div class="col s12">
+            <% for(let x of advice){%>
+            <%if(currentUser.username==x.username){%>
+              <h6><b>Date:</b> <%=x.date%></h6>
+              <p>🚀 <%=x.advice%></p>
+              <hr>
+            <%}%>
+            <%}%>
+          </div>
+        </div>
+      </div>
+      <div class="col s4 offset-s2">
+        <h6><b>Doctors' Contact</b></h6>
+        <ol class="row">
+          <li class="col s12">
+            👩🏻‍⚕️ Dr. Ayushi<br>
+            📞 +91-9999999999<br>
+            📧 ayushi@xyz.com<br><br>
+          </li>
+          
+          <li class="col s12">
+            👩🏻‍⚕️ Dr. Ayushi Prasad<br>
+            📞 +91-8888888888<br>
+            📧 ayushi_prasad@xyz.com<br><br>
+          </li>
+          
+          <li class="col s12">
+            👨🏻‍⚕️ Dr. Swagat Panda<br>
+            📞 +91-7777777777<br>
+            📧 swagat_panda@xyz.com<br><br>
+          </li>
+        </ol>
+      </div>
+    </div>
+    
+  </div>
+</body>
 </html>
