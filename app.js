@@ -1,15 +1,23 @@
-var express       = require("express"),
-    passport      = require("passport"),
-    flash         = require("connect-flash"),
-    bodyParser    = require("body-parser"),
-    User          = require("./models/user"),
-    Advice        = require("./models/advice"),
-    LocalStrategy = require("passport-local"),
-    session       = require("express-session"),
-    passportLocalMongoose = require("passport-local-mongoose");
+// Include your usernames here to successfully sign up
+const myUsers = [
+  'Ayushi',
+  'Ayushi Prasad',
+  'Swagat Panda',
+  'apple'
+];
 
-const mongoose  = require("mongoose");
-const Details   = require('./models/details');
+var express = require("express"),
+  passport = require("passport"),
+  flash = require("connect-flash"),
+  bodyParser = require("body-parser"),
+  User = require("./models/user"),
+  Advice = require("./models/advice"),
+  LocalStrategy = require("passport-local"),
+  session = require("express-session"),
+  passportLocalMongoose = require("passport-local-mongoose");
+
+const mongoose = require("mongoose");
+const Details = require("./models/details");
 mongoose
   .connect("mongodb://localhost:27017/auth_demo_app", {
     useNewUrlParser: true,
@@ -21,7 +29,7 @@ mongoose
 var app = express();
 app.set("view engine", "ejs");
 
-app.use(bodyParser.urlencoded({ extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   require("express-session")({
     secret: "ayushi",
@@ -37,84 +45,89 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   next();
 });
 
+/*
+Insert Advices into Database - comment it afterwards and before making a new entry, erase everything
 
-//insert advices into database--comment it afterwards and before making a new entry, erase everything
+Advice.insertMany([
+  {date:'2 feb',advice:'bla bla bla',username:'abcd'},
+  {date:'2 feb',advice:'blah blah',username:'a'}
+])
+  .then(data=>{
+    console.log("INSERTED");
+    console.log(data);
+  })
+*/
 
-// Advice.insertMany([
-//   {date:'2 feb',advice:'bla bla bla',username:'abcd'},
-//   {date:'2 feb',advice:'blah blah',username:'a'}
-// ])
-//   .then(data=>{
-//     console.log("INSERTED");
-//     console.log(data);
-//   })
-
-//----------------------------------------------------------------
 //ROUTES
 /*=========================*/
 
 app.get("/", function (req, res) {
-  res.render("home",{messages: req.flash('success')});
+  res.render("home", { messages: req.flash("success") });
 });
 
 //FILL DETAILS ROUTE
-app.get("/dashboard/new" , (req,res)=>{
-  res.render('dashboard/new');
+app.get("/dashboard/new", (req, res) => {
+  res.render("dashboard/new");
 });
 
 //CREATE ROUTE
-app.post("/dashboard", isLoggedIn , function(req,res){
-
+app.post("/dashboard", isLoggedIn, function (req, res) {
   //get data from form and add to db
   //redirect back to dashboard page
-  var date=req.body.date;
+  var date = req.body.date;
   var oxygen = req.body.oxygen;
-  var temp=req.body.temp;
-  var bp=req.body.bp;
-  var other=req.body.other;//name attribute in new.ejs
+  var temp = req.body.temp;
+  var bp = req.body.bp;
+  var other = req.body.other; //name attribute in new.ejs
   var author = {
-      id: req.user._id,
-      username: req.user.username
-  }
-  var newDetail={date:date,oxygen:oxygen,temp:temp,bp:bp,other:other,author:author}
+    id: req.user._id,
+    username: req.user.username,
+  };
+  var newDetail = {
+    date: date,
+    oxygen: oxygen,
+    temp: temp,
+    bp: bp,
+    other: other,
+    author: author,
+  };
   //create a new detail and save to database
-  Details.create(newDetail, function(err , newlyCreated){
-      if(err){
-          console.log(err);
-      }else{
-          //redirect to dashboard page
-          console.log(newlyCreated);
-          res.redirect("/dashboard");
-      }
+  Details.create(newDetail, function (err, newlyCreated) {
+    if (err) {
+      console.log(err);
+    } else {
+      //redirect to dashboard page
+      console.log(newlyCreated);
+      res.redirect("/dashboard");
+    }
   });
 });
 
 //INDEX ROUTE
-app.get("/dashboard", isLoggedIn, async(req, res)=> {
-  
-//send req.user.id and req.user.username : currently loggedin user 
-    res.render("dashboard",{id: req.user.id , currentUser: req.user});
+app.get("/dashboard", isLoggedIn, async (req, res) => {
+  //send req.user.id and req.user.username : currently loggedin user
+  res.render("dashboard", { id: req.user.id, currentUser: req.user });
 });
 
 //SHOW ROUTE
 //keep async otherwise it will fail....will give not iterable error
-app.get('/dashboard/show', async (req,res)=>{
-  console.log(req.user.id)
+app.get("/dashboard/show", async (req, res) => {
+  console.log(req.user.id);
   //console.log(req.user.username)
-  const details = await Details.find({"author.id" : req.user.id });
-  res.render("dashboard/show",{details});
-})
+  const details = await Details.find({ "author.id": req.user.id });
+  res.render("dashboard/show", { details });
+});
 
 //SHOW ADVICE ROUTE
-app.get('/dashboard/advice', async (req,res)=>{
+app.get("/dashboard/advice", async (req, res) => {
   const advice = await Advice.find({});
-  res.render("dashboard/advice",{advice});
-})
+  res.render("dashboard/advice", { advice });
+});
 
 //AUTH ROUTES
 //SHOW SIGNUP FORM
@@ -126,44 +139,43 @@ app.get("/register", function (req, res) {
 app.post("/register", function (req, res) {
   req.body.username;
   req.body.password;
-    
-  User.register(
-    new User({ username: req.body.username }),
-    req.body.password,
-    function (err, user) {
-      if (err) {
-        req.flash("error" , err.message);
-        return res.render("register");
+  if(myUsers.includes(req.body.username)) {
+    User.register(
+      new User({ username: req.body.username }),
+      req.body.password,
+      function (err, user) {
+        if (err) {
+          req.flash("error", err.message);
+          return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function () {
+          req.flash("success", `Logged in!`);
+          res.redirect("/dashboard");
+        });
       }
-      passport.authenticate("local")(req, res, function () {
-        req.flash("success" , `logged in !`);
-        res.redirect("/dashboard");
-      });
-    }
-  );
+    );
+  }
+  else {
+    req.flash("error", "Your username is not registered 😥");
+    res.redirect("/register");
+  }
 });
 
 //LOGIN ROUTES
 //render login form
 app.get("/login", function (req, res) {
-  res.render("login",{messages: req.flash('info')});
+  res.render("login", { messages: req.flash("info") });
 });
 
 //login logic
 //middleware
-app.post(
-  "/login",
-  passport.authenticate("local"), function (req, res) {
-    res.redirect("/dashboard/");
-  }
-   
-    
-  
-);
+app.post("/login", passport.authenticate("local"), function (req, res) {
+  res.redirect("/dashboard/");
+});
 
 app.get("/logout", function (req, res) {
   req.logout();
-  req.flash("success" , "logged out");
+  req.flash("success", "👋🏻 Successfully logged out");
   res.redirect("/");
 });
 
@@ -172,7 +184,7 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-  req.flash("info" , "something went wrong....please try again!");
+  req.flash("info", "😟 Something went wrong....please try again!");
   res.redirect("/login");
 }
 

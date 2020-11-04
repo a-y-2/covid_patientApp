@@ -1,16 +1,14 @@
-<!-- Materialize -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
-
-<!-- Global Styles -->
-<style>
-    *{
-        font-family: 'Montserrat', sans-serif;
-    }
-    a, a:link, a:visited {
-        color: #FFFAFA;
-        text-decoration: none;
-       
-    }
-</style>
+<!-- TITLE BAR -->
+<div style="background-color:var(--primary)">
+    <div class="row" style="width: 95%;margin: 0 auto;">
+        <div class="col s10">
+            <h1 style="margin: 5vh auto 0px auto;">Dashboard</h1>
+            <h6 style="margin: 0px auto 5vh auto;">Welcome <%=currentUser.username%>!</h6>
+        </div>
+        <div class="col s2" style="margin: 6vh auto;">
+            <a href="/logout" class="waves-effect waves-teal btn-flat">
+                <h6><b>LOGOUT👋🏻</b></h6>
+            </a>
+        </div>
+    </div>
+</div>

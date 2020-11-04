@@ -1,0 +1,36 @@
+:root {
+  --base: rgb(20, 20, 20);
+  --primary: aquamarine;
+  --secondary: palegoldenrod;
+  --accent1: rgba(127, 255, 212, 0.733);
+  --accent2: rgba(255, 250, 240, 0.801);
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--base);
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+a,
+a:link,
+a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

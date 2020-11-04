@@ -1,46 +1,60 @@
 <html>
-  <head>
-    <title>Register</title>
-    <%- include ("./partials/header") %>
-    <link rel="stylesheet" href="/stylesheets/register.css" />
-  </head>
 
-  <body>
-    <h1><center>Sign Up</center></h1>
-    <!-- REGISTER FORM -->
-    <div class="container">
-      <div class="row">
-        <form action="/register" method="POST" class="col s6 offset-s3">
-    
-          <!-- Username Field -->
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="text" name="username" id="username" class="validate" />
-              <label for="username">Username</label>
+<head>
+  <title>📝 Register</title>
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/stylesheets/global.css">
+  <link rel="stylesheet" href="/stylesheets/register.css" />
+</head>
+
+<body>
+  <div class="row hide-on-large-only" style="margin-top: 300px;"></div>
+  <div class="row" style="margin-top: 6%;">
+    <div class="col m8 offset-m2 l4 offset-l4 ">
+      <div class="card grey lighten-3" style="padding: 10px">
+        <div class="card-title">
+          <h2>
+            <center>Sign Up</center>
+          </h2>
+        </div>
+
+        <div class="card-content">
+          <form action="/register" method="POST">
+
+            <!-- Username Field -->
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="username" id="username" class="validate" />
+                <label for="username">Username</label>
+              </div>
             </div>
-          </div>
-    
-          <!-- Password Field -->
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="password" name="password" id="password" class="validate" />
-              <label for="password">Password</label>
+
+            <!-- Password Field -->
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" name="password" id="password" class="validate" />
+                <label for="password">Password</label>
+              </div>
             </div>
-          </div>
-    
-          <!-- Submit Button  -->
-          <button class="waves-effect waves-light btn">SIGN UP</button>
-    
-        </form>
+
+            <!-- Submit Button  -->
+            <button class="waves-effect waves-light btn-large col s12 teal accent-4">SIGN UP</button>
+
+          </form>
+        </div>
+        <div class="card-action" style="color: black;">
+          <br>
+          <a href="/login"><b>Old User? LOGIN instead.</b></a>
+        </div>
       </div>
     </div>
-    
-    <center><a href="/login" class="waves-effect waves-light btn">Login</a></center>
-    
+  </div>
 
-    <!-- <li><a href="/register">sign up</a></li> -->
-    <!-- <li><a href="/logout">logout</a></li> -->
+  <%- include ("./partials/footer") %>
+</body>
 
-    <%- include ("./partials/footer") %>
-  </body>
 </html>
