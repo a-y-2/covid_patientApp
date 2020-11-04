@@ -132,7 +132,7 @@ app.get("/dashboard/advice", async (req, res) => {
 //AUTH ROUTES
 //SHOW SIGNUP FORM
 app.get("/register", function (req, res) {
-  res.render("register");
+  res.render("register",{ messages: req.flash("error") });
 });
 
 //HANDLE USER SIGNUP
