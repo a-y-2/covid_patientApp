@@ -1,3 +1,11 @@
+// Include your usernames here to successfully sign up
+const myUsers = [
+  'Ayushi',
+  'Ayushi Prasad',
+  'Swagat Panda',
+  'apple'
+];
+
 var express = require("express"),
   passport = require("passport"),
   flash = require("connect-flash"),
@@ -131,21 +139,26 @@ app.get("/register", function (req, res) {
 app.post("/register", function (req, res) {
   req.body.username;
   req.body.password;
-
-  User.register(
-    new User({ username: req.body.username }),
-    req.body.password,
-    function (err, user) {
-      if (err) {
-        req.flash("error", err.message);
-        return res.render("register");
+  if(myUsers.includes(req.body.username)) {
+    User.register(
+      new User({ username: req.body.username }),
+      req.body.password,
+      function (err, user) {
+        if (err) {
+          req.flash("error", err.message);
+          return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function () {
+          req.flash("success", `Logged in!`);
+          res.redirect("/dashboard");
+        });
       }
-      passport.authenticate("local")(req, res, function () {
-        req.flash("success", `Logged in!`);
-        res.redirect("/dashboard");
-      });
-    }
-  );
+    );
+  }
+  else {
+    req.flash("error", "Your username is not registered 😥");
+    res.redirect("/register");
+  }
 });
 
 //LOGIN ROUTES
